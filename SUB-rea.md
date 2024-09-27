@@ -133,18 +133,18 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇨🇭 Azadi 1",
-        "🇺🇲 Azadi",
-        "🇺🇲 Azadi IPv6"
+        "🇨🇭 خجالت بکش رضا 1",
+        "🇺🇲 خجالت بکش رضا",
+        "🇺🇲 خجالت بکش رضا IPv6"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇨🇭 Azadi 1",
-        "🇺🇲 Azadi",
-        "🇺🇲 Azadi IPv6"
+        "🇨🇭 خجالت بکش رضا 1",
+        "🇺🇲 خجالت بکش رضا",
+        "🇺🇲 خجالت بکش رضا IPv6"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m0s",
@@ -153,15 +153,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇨🇭 Azadi 1",
+      "tag": "🇨🇭 خجالت بکش رضا 1",
       "domain_strategy": "prefer_ipv4",
       "server": "all-v4.dgi000.store",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@azadi_az_inja_migzare"
+        "password": "@خجالت بکش رضا_az_inja_migzare"
       },
-      "password": "@azadi_az_inja_migzare",
+      "password": "@خجالت بکش رضا_az_inja_migzare",
       "tls": {
         "enabled": true,
         "server_name": "all-v4.dgi000.store",
@@ -182,15 +182,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇲 Azadi",
+      "tag": "🇺🇲 خجالت بکش رضا",
       "domain_strategy": "prefer_ipv4",
       "server": "all-v6.dgi000.store",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@azadi_az_inja_migzare"
+        "password": "@خجالت بکش رضا_az_inja_migzare"
       },
-      "password": "@azadi_az_inja_migzare",
+      "password": "@خجالت بکش رضا_az_inja_migzare",
       "tls": {
         "enabled": true,
         "server_name": "all-v6.dgi000.store",
@@ -211,15 +211,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇲 Azadi IPv6",
+      "tag": "🇺🇲 خجالت بکش رضا IPv6",
       "domain_strategy": "prefer_ipv6",
       "server": "all-v6.dgi000.store",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@azadi_az_inja_migzare"
+        "password": "@خجالت بکش رضا_az_inja_migzare"
       },
-      "password": "@azadi_az_inja_migzare",
+      "password": "@خجالت بکش رضا_az_inja_migzare",
       "tls": {
         "enabled": true,
         "server_name": "all-v6.dgi000.store",
