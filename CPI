@@ -1,0 +1,1614 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "xraypsiphon.sassanidempire.com",
+          "braze.com",
+          "vinted.fr",
+          "indeed.com",
+          "economist.com",
+          "autotrader.co.uk",
+          "sublinkhiddify.makingirangreatagain.com"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain": "connectivitycheck.gstatic.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      },
+      {
+        "domain_suffix": ".ir",
+        "server": "dns-direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "server": "dns-direct"
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "104.17.147.22",
+        "104.17.148.22",
+        "188.114.96.6",
+        "188.114.97.6",
+        "2a06:98c1:3121::6",
+        "2a06:98c1:3120::6"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 12334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 16450
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "CPI-ipv6 § 0",
+        "CPI § 1",
+        "CPI2-ipv6 § 2",
+        "CPI2 § 3",
+        "CPI3-ipv6 § 4",
+        "CPI3 § 5",
+        "CPI4-ipv6 § 6",
+        "CPI4 § 7",
+        "CPI_psi_Xray § 8",
+        "CPI_ tls_h2 WS CDN vless § 9",
+        "CPI_ tls_h2 WS CDN trojan § 10",
+        "CPI_ tls_h2 httpupgrade CDN vless § 11",
+        "CPI_ tls_h2 grpc CDN vless § 12",
+        "CPI_ tls_h2 grpc CDN trojan § 13",
+        "CPI_ tls WS CDN vless § 14",
+        "CPI_ tls WS CDN trojan § 15",
+        "CPI_ tls httpupgrade CDN vless § 16",
+        "CPI_ tls grpc CDN vless § 17",
+        "CPI_ tls grpc CDN trojan § 18",
+        "CPI_ tls_h2 WS CDN vless § 19",
+        "CPI_ tls_h2 WS CDN trojan § 20",
+        "CPI_ tls_h2 httpupgrade CDN vless § 21",
+        "CPI_ tls_h2 grpc CDN vless § 22",
+        "CPI_ tls_h2 grpc CDN trojan § 23",
+        "CPI_ tls WS CDN vless § 24",
+        "CPI_ tls WS CDN trojan § 25",
+        "CPI_ tls httpupgrade CDN vless § 26",
+        "CPI_ tls grpc CDN vless § 27",
+        "CPI_ tls grpc CDN trojan § 28",
+        "CPI_ tls_h2 WS CDN vless § 29",
+        "CPI_ tls_h2 WS CDN trojan § 30",
+        "CPI_ tls_h2 httpupgrade CDN vless § 31",
+        "CPI_ tls_h2 grpc CDN vless § 32",
+        "CPI_ tls_h2 grpc CDN trojan § 33",
+        "CPI_ tls WS CDN vless § 34",
+        "CPI_ tls WS CDN trojan § 35",
+        "CPI_ tls httpupgrade CDN vless § 36",
+        "CPI_ tls grpc CDN vless § 37",
+        "CPI_ tls grpc CDN trojan § 38",
+        "CPI_ tls_h2 WS CDN vless § 39",
+        "CPI_ tls_h2 WS CDN trojan § 40",
+        "CPI_ tls_h2 httpupgrade CDN vless § 41",
+        "CPI_ tls_h2 grpc CDN vless § 42",
+        "CPI_ tls_h2 grpc CDN trojan § 43",
+        "CPI_ tls WS CDN vless § 44",
+        "CPI_ tls WS CDN trojan § 45",
+        "CPI_ tls httpupgrade CDN vless § 46",
+        "CPI_ tls grpc CDN vless § 47",
+        "CPI_ tls grpc CDN trojan § 48",
+        "CPI_ tls_h2 WS CDN vless § 49",
+        "CPI_ tls_h2 WS CDN trojan § 50",
+        "CPI_ tls_h2 httpupgrade CDN vless § 51",
+        "CPI_ tls_h2 grpc CDN vless § 52",
+        "CPI_ tls_h2 grpc CDN trojan § 53",
+        "CPI_ tls WS CDN vless § 54",
+        "CPI_ tls WS CDN trojan § 55",
+        "CPI_ tls httpupgrade CDN vless § 56",
+        "CPI_ tls grpc CDN vless § 57",
+        "CPI_ tls grpc CDN trojan § 58",
+        "CPI_SS_ ShadowSocks2022 § 59"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "CPI-ipv6 § 0",
+        "CPI § 1",
+        "CPI2-ipv6 § 2",
+        "CPI2 § 3",
+        "CPI3-ipv6 § 4",
+        "CPI3 § 5",
+        "CPI4-ipv6 § 6",
+        "CPI4 § 7",
+        "CPI_psi_Xray § 8",
+        "CPI_ tls_h2 WS CDN vless § 9",
+        "CPI_ tls_h2 WS CDN trojan § 10",
+        "CPI_ tls_h2 httpupgrade CDN vless § 11",
+        "CPI_ tls_h2 grpc CDN vless § 12",
+        "CPI_ tls_h2 grpc CDN trojan § 13",
+        "CPI_ tls WS CDN vless § 14",
+        "CPI_ tls WS CDN trojan § 15",
+        "CPI_ tls httpupgrade CDN vless § 16",
+        "CPI_ tls grpc CDN vless § 17",
+        "CPI_ tls grpc CDN trojan § 18",
+        "CPI_ tls_h2 WS CDN vless § 19",
+        "CPI_ tls_h2 WS CDN trojan § 20",
+        "CPI_ tls_h2 httpupgrade CDN vless § 21",
+        "CPI_ tls_h2 grpc CDN vless § 22",
+        "CPI_ tls_h2 grpc CDN trojan § 23",
+        "CPI_ tls WS CDN vless § 24",
+        "CPI_ tls WS CDN trojan § 25",
+        "CPI_ tls httpupgrade CDN vless § 26",
+        "CPI_ tls grpc CDN vless § 27",
+        "CPI_ tls grpc CDN trojan § 28",
+        "CPI_ tls_h2 WS CDN vless § 29",
+        "CPI_ tls_h2 WS CDN trojan § 30",
+        "CPI_ tls_h2 httpupgrade CDN vless § 31",
+        "CPI_ tls_h2 grpc CDN vless § 32",
+        "CPI_ tls_h2 grpc CDN trojan § 33",
+        "CPI_ tls WS CDN vless § 34",
+        "CPI_ tls WS CDN trojan § 35",
+        "CPI_ tls httpupgrade CDN vless § 36",
+        "CPI_ tls grpc CDN vless § 37",
+        "CPI_ tls grpc CDN trojan § 38",
+        "CPI_ tls_h2 WS CDN vless § 39",
+        "CPI_ tls_h2 WS CDN trojan § 40",
+        "CPI_ tls_h2 httpupgrade CDN vless § 41",
+        "CPI_ tls_h2 grpc CDN vless § 42",
+        "CPI_ tls_h2 grpc CDN trojan § 43",
+        "CPI_ tls WS CDN vless § 44",
+        "CPI_ tls WS CDN trojan § 45",
+        "CPI_ tls httpupgrade CDN vless § 46",
+        "CPI_ tls grpc CDN vless § 47",
+        "CPI_ tls grpc CDN trojan § 48",
+        "CPI_ tls_h2 WS CDN vless § 49",
+        "CPI_ tls_h2 WS CDN trojan § 50",
+        "CPI_ tls_h2 httpupgrade CDN vless § 51",
+        "CPI_ tls_h2 grpc CDN vless § 52",
+        "CPI_ tls_h2 grpc CDN trojan § 53",
+        "CPI_ tls WS CDN vless § 54",
+        "CPI_ tls WS CDN trojan § 55",
+        "CPI_ tls httpupgrade CDN vless § 56",
+        "CPI_ tls grpc CDN vless § 57",
+        "CPI_ tls grpc CDN trojan § 58",
+        "CPI_SS_ ShadowSocks2022 § 59"
+      ],
+      "url": "http://connectivitycheck.gstatic.com/generate_204",
+      "interval": "10m0s",
+      "tolerance": 1,
+      "idle_timeout": "30m0s"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI-ipv6 § 0",
+      "server": "2001:19f0:1000:20d0:5400:5ff:fe19:3ba9",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "13f7ba5f"
+      },
+      "password": "4e9ee29b39a28277",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI § 1",
+      "server": "66.135.11.68",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "13f7ba5f"
+      },
+      "password": "4e9ee29b39a28277",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI2-ipv6 § 2",
+      "server": "2001:19f0:1000:18b3:5400:5ff:fe19:3f6d",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "cd29099d"
+      },
+      "password": "9bb452b106ffc217",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI2 § 3",
+      "server": "207.148.22.93",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "cd29099d"
+      },
+      "password": "9bb452b106ffc217",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI3-ipv6 § 4",
+      "server": "2001:19f0:5:34a0:5400:5ff:fe19:3f6f",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "4b817757"
+      },
+      "password": "1f17cdf0578a2860",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI3 § 5",
+      "server": "45.76.0.86",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "4b817757"
+      },
+      "password": "1f17cdf0578a2860",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI4-ipv6 § 6",
+      "server": "2a05:f480:2000:1384:5400:5ff:fe19:8b0a",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "d2648ec2"
+      },
+      "password": "18240b2dfdd76484",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "CPI4 § 7",
+      "server": "70.34.207.153",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "d2648ec2"
+      },
+      "password": "18240b2dfdd76484",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_psi_Xray § 8",
+      "server": "xraypsiphon.sassanidempire.com",
+      "server_port": 443,
+      "uuid": "aaf8a6c9-aaad-4f85-dd01-9ccd4ca554f9",
+      "tls": {
+        "enabled": true,
+        "server_name": "xraypsiphon.sassanidempire.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wspath",
+        "headers": {
+          "Host": "xraypsiphon.sassanidempire.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 WS CDN vless § 9",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 WS CDN trojan § 10",
+      "server": "braze.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 httpupgrade CDN vless § 11",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 grpc CDN vless § 12",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 grpc CDN trojan § 13",
+      "server": "braze.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls WS CDN vless § 14",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls WS CDN trojan § 15",
+      "server": "braze.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls httpupgrade CDN vless § 16",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls grpc CDN vless § 17",
+      "server": "braze.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls grpc CDN trojan § 18",
+      "server": "braze.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 WS CDN vless § 19",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 WS CDN trojan § 20",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 httpupgrade CDN vless § 21",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 grpc CDN vless § 22",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 grpc CDN trojan § 23",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls WS CDN vless § 24",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls WS CDN trojan § 25",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls httpupgrade CDN vless § 26",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls grpc CDN vless § 27",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls grpc CDN trojan § 28",
+      "server": "vinted.fr",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 WS CDN vless § 29",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 WS CDN trojan § 30",
+      "server": "indeed.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 httpupgrade CDN vless § 31",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 grpc CDN vless § 32",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 grpc CDN trojan § 33",
+      "server": "indeed.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls WS CDN vless § 34",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls WS CDN trojan § 35",
+      "server": "indeed.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls httpupgrade CDN vless § 36",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls grpc CDN vless § 37",
+      "server": "indeed.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls grpc CDN trojan § 38",
+      "server": "indeed.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 WS CDN vless § 39",
+      "server": "economist.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 WS CDN trojan § 40",
+      "server": "economist.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 httpupgrade CDN vless § 41",
+      "server": "economist.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 grpc CDN vless § 42",
+      "server": "economist.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 grpc CDN trojan § 43",
+      "server": "economist.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls WS CDN vless § 44",
+      "server": "economist.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls WS CDN trojan § 45",
+      "server": "economist.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls httpupgrade CDN vless § 46",
+      "server": "economist.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls grpc CDN vless § 47",
+      "server": "economist.com",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls grpc CDN trojan § 48",
+      "server": "economist.com",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 WS CDN vless § 49",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 WS CDN trojan § 50",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 httpupgrade CDN vless § 51",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls_h2 grpc CDN vless § 52",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls_h2 grpc CDN trojan § 53",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls WS CDN vless § 54",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/KCoBBKhVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls WS CDN trojan § 55",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ypSUmDMymGhCVhQEtbuL9Nwd",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls httpupgrade CDN vless § 56",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/KCoBBKhIzEEluJuj",
+        "headers": {
+          "Host": "sublinkhiddifyc1.makingirangreatagain.com"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "CPI_ tls grpc CDN vless § 57",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "uuid": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "KCoBBKhQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "trojan",
+      "tag": "CPI_ tls grpc CDN trojan § 58",
+      "server": "autotrader.co.uk",
+      "server_port": 443,
+      "password": "15c2491a-01d2-4d36-b4c4-7095682368cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "sublinkhiddifyc1.makingirangreatagain.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ypSUmDMymGhCQONXdAX1q",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "CPI_SS_ ShadowSocks2022 § 59",
+      "server": "sublinkhiddify.makingirangreatagain.com",
+      "server_port": 19458,
+      "method": "2022-blake3-aes-256-gcm",
+      "password": "NWI1NWJjOWYyNWRkNDdlYjlmMDMxYTc2N2M5YmU0YjU=:MTVjMjQ5MWEwMWQyNGQzNmI0YzQ3MDk1NjgyMzY4Y2Q="
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-30",
+        "sleep": "2-8"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "process_name": [
+          "Hiddify",
+          "Hiddify.exe",
+          "HiddifyCli",
+          "HiddifyCli.exe"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "domain_suffix": ".ir",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-ir.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-ir.srs",
+        "update_interval": "120h0m0s"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:16756",
+      "secret": "e73p_258MkSEf-HN"
+    }
+  }
+}
