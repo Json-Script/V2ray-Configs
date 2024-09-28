@@ -1,5 +1,8 @@
 # Rea
 
+> ### **NOTE:**  
+> This configuration list is collected from the list of configurations available on the internet.
+
 ## **Overview of V2Ray**
 
 **V2Ray** is a powerful tool designed to help users bypass internet censorship and enhance their online privacy. It is a versatile platform that supports various protocols and can be configured to suit different needs. 
