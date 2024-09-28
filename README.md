@@ -26,29 +26,23 @@ To get started with V2Ray, follow these steps:
 
 ## **Applications**
 
-### **V@RayNG**
+### **V2RayNG**
 
-<img src="link_to_vrayng_logo_image" alt="V@RayNG Logo" width="150" />
+<img src="https://www.doprax.com/wp-content/uploads/2023/07/V2ray-logo-white.svg" alt="V2RayNG Logo" width="150" />
 
 **V@RayNG** is a popular V2Ray client for Android, providing a user-friendly interface and robust features.
 
 ### **Sing Box**
 
-<img src="link_to_sing_box_logo_image" alt="Sing Box Logo" width="150" />
+<img src="https://sing-box.sagernet.org/assets/icon.svg" alt="Sing Box Logo" width="150" />
 
 **Sing Box** is another excellent client that simplifies the V2Ray experience, making it accessible for all users.
 
 ### **Hiddify**
 
-<img src="link_to_hiddify_logo_image" alt="Hiddify Logo" width="150" />
+<img src="https://avatars.githubusercontent.com/u/126981719?s=200&v=4" alt="Hiddify Logo" width="150" />
 
 **Hiddify** offers a unique approach to V2Ray, focusing on privacy and security.
-
-### **V2Ray Apps**
-
-<img src="link_to_v2ray_apps_image" alt="V2Ray Apps" width="150" />
-
-Explore various V2Ray applications that enhance your online experience.
 
 ## **Conclusion**
 
