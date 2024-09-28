@@ -1,8 +1,7 @@
 # Rea
 
 > ### **NOTE**  
-> 
-This configuration list is collected from the list of configurations available on the Internet. They are only displayed in this repository for easy access. I am not responsible for the configurations.
+> This configuration list is collected from the list of configurations available on the Internet. They are only displayed in this repository for easy access. I am not responsible for the configurations.
 
 
 ## **Overview of V2Ray**
