@@ -1,6 +1,6 @@
 #profile-title: CPI @jSON_SERVER
 #profile-update-interval: 1
-#subscription-userinfo: upload=100; download=100; total=1000; expire=30
+#subscription-userinfo: upload=100; download=100; total=1000; expire=100
 #support-url: T.me/Json_server
 #profile-web-page-url: https://github.com/Json-Script/
 hy2://4e9ee29b39a28277@[2001:19f0:1000:20d0:5400:5ff:fe19:3ba9]:443/?obfs=salamander&obfs-password=13f7ba5f&insecure=1#CPI-ipv6
