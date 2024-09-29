@@ -56,6 +56,17 @@ To get started with V2Ray, follow these steps:
 
 V2Ray is an essential tool for anyone looking to improve their online privacy and access restricted content. With its robust features and community support, it stands out as a leading solution in the field of internet freedom.
 
+
+
 ---
 
-*For more information, visit the [official V2Ray website](https://www.v2ray.com).*
+
+
+## **Contributing**
+✍️ If you have a V2ray configuration file that you would like to contribute to this repository, simply create a new pull request and we will review it.
+
+## **License**
+📝 This repository is licensed under the MIT license. See LICENSE for more information.
+
+## **Contact**
+???
