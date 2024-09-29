@@ -1,4 +1,4 @@
-#profile-title: CPI @jSSON_SERVER #profile-update-interval: 1 #subscription-userinfo: upload=100; download=100; total=10000000000000;
+#profile-title: CPI@jSSON_SERVER #profile-update-interval: 1 #subscription-userinfo: upload=100; download=100; total=10000000000000;
 hy2://4e9ee29b39a28277@[2001:19f0:1000:20d0:5400:5ff:fe19:3ba9]:443/?obfs=salamander&obfs-password=13f7ba5f&insecure=1#CPI-ipv6
 hy2://4e9ee29b39a28277@66.135.11.68:443/?obfs=salamander&obfs-password=13f7ba5f&insecure=1#CPI
 hy2://9bb452b106ffc217@[2001:19f0:1000:18b3:5400:5ff:fe19:3f6d]:443/?obfs=salamander&obfs-password=cd29099d&insecure=1#CPI2-ipv6
