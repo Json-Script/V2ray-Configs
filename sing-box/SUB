@@ -158,7 +158,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇨🇭 خجالت بکش رضا",
+      "tag": " خجالت بکش رضا",
       "domain_strategy": "prefer_ipv4",
       "server": "all-v4.dgi000.store",
       "server_port": 443,
