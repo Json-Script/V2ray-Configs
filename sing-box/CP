@@ -96,14 +96,14 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🌟\@Json_Server § hy2+ech"
+        "🌟 § hy2+ech"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🌟\@Json_Server § hy2+ech"
+        "🌟 § hy2+ech"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -112,7 +112,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🌟\@Json_Server § hy2+ech",
+      "tag": "🌟 § hy2+ech",
       "domain_strategy": "prefer_ipv6",
       "server": "h2.88981401.xyz",
       "server_port": 443,
