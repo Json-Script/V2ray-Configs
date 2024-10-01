@@ -82,11 +82,17 @@ V2Ray is an essential tool for anyone looking to improve their online privacy an
 
 
 
-## **Contributing**
+### **Contributing**
 ✍️ If you have a V2ray configuration file that you would like to contribute to this repository, simply create a new pull request and we will review it.
 
-## **License**
+
+### **License**
 📝 This repository is licensed under the MIT license. See LICENSE for more information.
 
-## **Contact**
+### **Contact**
 **T.me/Json_server**
+
+<br><br> <!-- Add space here -->
+
+#### Stargazers Over Time
+![Stargazers over time](https://starchart.cc/Json-Script/V2ray-Configs.svg)
