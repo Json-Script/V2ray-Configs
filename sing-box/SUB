@@ -138,18 +138,18 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "خجالت بکش حسین",
-        "خجالت بکش رضا",
-        "خجالت بکش رضا IPv6"
+        "یه کاسه ای  ",
+        "زیر نیمکاسه ",
+        "این موشکاس "
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "خجالت بکش حسین",
-        "خجالت بکش رضا",
-        "خجالت بکش رضا IPv6"
+        "یه کاسه ای  ",
+        "زیر نیمکاسه ",
+        "این موشکاس "
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m0s",
@@ -158,7 +158,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "خجالت بکش حسین",
+      "tag": "یه کاسه ای  ",
       "domain_strategy": "prefer_ipv4",
       "server": "all-v4.dgi000.store",
       "server_port": 443,
@@ -187,7 +187,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "خجالت بکش رضا",
+      "tag": "زیر نیمکاسه ",
       "domain_strategy": "prefer_ipv4",
       "server": "all-v6.dgi000.store",
       "server_port": 443,
@@ -216,7 +216,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "خجالت بکش رضا IPv6",
+      "tag": "این موشکاس ",
       "domain_strategy": "prefer_ipv6",
       "server": "all-v6.dgi000.store",
       "server_port": 443,
