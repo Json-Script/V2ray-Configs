@@ -93,8 +93,6 @@ V2Ray is an essential tool for anyone looking to improve their online privacy an
 **T.me/Json_server**
 
 <br><br> <!-- Add space here -->
-
-#### Stargazers Over Time
                         
 ## Stargazers over time
 [![Stargazers over time](https://starchart.cc/Json-Script/V2ray-Configs.svg?variant=adaptive)](https://starchart.cc/Json-Script/V2ray-Configs)
