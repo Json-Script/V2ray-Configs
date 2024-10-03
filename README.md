@@ -7,39 +7,6 @@
 <br><br> <!-- Add space here -->
 
 
-### GitHub Stats
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=Json-Script&show_icons=true&theme=radical" alt="Json-Script's GitHub stats" width="500"/>
-
-<br><br> <!-- Add space here -->
-
-<div style="display: flex; gap: 10px; justify-content: center;">
-    <img src="https://img.shields.io/github/contributors/Json-Script/V2ray-Configs" alt="GitHub contributors" width="100"/>
-    <img src="https://img.shields.io/github/last-commit/Json-Script/V2ray-Configs" alt="GitHub last commit" width="125"/>
-    <img src="https://img.shields.io/github/commit-activity/m/Json-Script/V2ray-Configs" alt="GitHub commit activity" width="200"/>
-</div>
-
-</div>
-
-<br><br> <!-- Add space here -->
-
-## **Overview of V2Ray**
-
-**V2Ray** is a powerful tool designed to help users bypass internet censorship and enhance their online privacy. It is a versatile platform that supports various protocols and can be configured to suit different needs. 
-
-### **Key Features**
-
-- **Multi-Protocol Support**: V2Ray supports multiple protocols, including VMess, VLess, and more.
-- **Flexible Configuration**: Users can customize their settings to optimize performance and security.
-- **Traffic Obfuscation**: V2Ray can disguise your internet traffic to prevent detection.
-
-### **Why Choose V2Ray?**
-
-- **Privacy Protection**: V2Ray helps protect your online activities from prying eyes.
-- **Bypass Restrictions**: Easily access blocked websites and services.
-- **Community Support**: A large community of users and developers contributes to its ongoing improvement.
-
 ## **Getting Started**
 
 To get started with V2Ray, follow these steps:
@@ -86,13 +53,27 @@ V2Ray is an essential tool for anyone looking to improve their online privacy an
 ✍️ If you have a V2ray configuration file that you would like to contribute to this repository, simply create a new pull request and we will review it.
 
 
-### **License**
-📝 This repository is licensed under the MIT license. See LICENSE for more information.
-
 ### **Contact**
 **T.me/Json_server**
 
+
+### GitHub Stats
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=Json-Script&show_icons=true&theme=radical" alt="Json-Script's GitHub stats" width="500"/>
+
 <br><br> <!-- Add space here -->
+
+<div style="display: flex; gap: 10px; justify-content: center;">
+    <img src="https://img.shields.io/github/contributors/Json-Script/V2ray-Configs" alt="GitHub contributors" width="100"/>
+    <img src="https://img.shields.io/github/last-commit/Json-Script/V2ray-Configs" alt="GitHub last commit" width="125"/>
+    <img src="https://img.shields.io/github/commit-activity/m/Json-Script/V2ray-Configs" alt="GitHub commit activity" width="200"/>
+</div>
+
+</div>
+
+<br><br> <!-- Add space here -->
+
                         
 ## Stargazers over time
 [![Stargazers over time](https://starchart.cc/Json-Script/V2ray-Configs.svg?variant=adaptive)](https://starchart.cc/Json-Script/V2ray-Configs)
